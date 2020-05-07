@@ -36,7 +36,7 @@ class BilinearUpSampling2D(Layer):
             width = self.size[1] * input_shape[2] if input_shape[2] is not None else None
         
         #module 'tensorflow._api.v2.image' has no attribute 'resize_images' so make it tf.image.resize
-        return tf.image.resize(inputs, [height, width], method=tf.image.ResizeMethod.BILINEAR, align_corners=True)
+        return tf.image.resize(inputs, [height, width], method=tf.image.ResizeMethod.BILINEAR, antialias = True)    
     
 
     def get_config(self):
